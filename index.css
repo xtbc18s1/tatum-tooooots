@@ -44,3 +44,7 @@ main {
   background-color: whitesmoke;
   margin: 1rem auto;
 }
+
+.flickName {
+  margin: 0 0.75rem
+}
