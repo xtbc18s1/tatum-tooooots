@@ -13,6 +13,11 @@ const app = {
       })
   },
 
+  removeFlick(ev) {
+    const item = ev.target.closest('.flick')
+    item.remove()
+  },
+
   renderListItem(flick) {
     const item = this.template.cloneNode(true)
     item.classList.remove('template')
@@ -20,6 +25,10 @@ const app = {
     item
       .querySelector('.flickName')
       .textContent = flick.name
+
+    item
+      .querySelector('.remove.button')
+      .addEventListener('click', this.removeFlick)
 
     return item
   },
