@@ -13,8 +13,13 @@ const app = {
       })
   },
 
-  removeFlick(item, ev) {
+  removeFlick(item, flick, ev) {
+    // remove from the DOM
     item.remove()
+
+    //remove from the array
+    const i = this.flicks.indexOf(flick)
+    this.flicks.splice(i, 1)
   },
 
   renderListItem(flick) {
@@ -29,7 +34,7 @@ const app = {
       .querySelector('.remove.button')
       .addEventListener(
         'click',
-        this.removeFlick.bind(this, item)
+        this.removeFlick.bind(this, item, flick)
       )
 
     return item
