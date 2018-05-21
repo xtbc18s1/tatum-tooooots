@@ -1,5 +1,5 @@
-const app = {
-  init(selectors) {
+class App {
+  constructor(selectors) {
     this.flicks = []
     this.max = 0
     this.list = document.querySelector(selectors.listSelector)
@@ -11,7 +11,7 @@ const app = {
         ev.preventDefault()
         this.handleSubmit(ev)
       })
-  },
+  }
 
   removeFlick(item, flick, ev) {
     // remove from the DOM
@@ -20,7 +20,7 @@ const app = {
     //remove from the array
     const i = this.flicks.indexOf(flick)
     this.flicks.splice(i, 1)
-  },
+  }
 
   renderListItem(flick) {
     const item = this.template.cloneNode(true)
@@ -38,7 +38,7 @@ const app = {
       )
 
     return item
-  },
+  }
 
   handleSubmit(ev) {
     const f = ev.target
@@ -53,10 +53,10 @@ const app = {
     this.list.insertBefore(item, this.list.firstChild)
 
     f.reset()
-  },
+  }
 }
 
-app.init({
+const app = new App({
   formSelector: '#flickForm',
   listSelector: '#flickList',
   templateSelector: '.flick.template',
