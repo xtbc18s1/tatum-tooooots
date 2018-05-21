@@ -56,3 +56,7 @@ main {
 .template {
   display: none;
 }
+
+.flick.fav {
+  background-color: #62e6ff;
+}

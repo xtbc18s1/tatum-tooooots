@@ -13,13 +13,17 @@ class App {
       })
   }
 
-  removeFlick(item, flick, ev) {
+  removeFlick(item, flick, _ev) {
     // remove from the DOM
     item.remove()
 
     //remove from the array
     const i = this.flicks.indexOf(flick)
     this.flicks.splice(i, 1)
+  }
+
+  favFlick(item, flick, _ev) {
+    flick.fav = item.classList.toggle('fav')
   }
 
   renderListItem(flick) {
@@ -37,6 +41,13 @@ class App {
         this.removeFlick.bind(this, item, flick)
       )
 
+    item
+      .querySelector('.fav.button')
+      .addEventListener(
+        'click',
+        this.favFlick.bind(this, item, flick)
+      )
+
     return item
   }
 
@@ -45,6 +56,7 @@ class App {
     const flick = {
       id: ++this.max,
       name: f.flickName.value,
+      fav: false,
     }
 
     this.flicks.unshift(flick)
