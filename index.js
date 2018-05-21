@@ -23,6 +23,11 @@ class App {
     this.flicks.splice(i, 1)
   }
 
+  favFlick(flick, ev) {
+    const item = ev.target.closest('.flick')
+    flick.fav = item.classList.toggle('fav')
+  }
+
   renderListItem(flick) {
     const item = this.template.cloneNode(true)
     item.classList.remove('template')
@@ -33,7 +38,18 @@ class App {
 
     item
       .querySelector('.remove.button')
-      .addEventListener('click', this.removeFlick.bind(this, flick))
+      .addEventListener(
+        'click',
+        this.removeFlick.bind(this, flick)
+      )
+
+    item
+      .querySelector('.fav.button')
+      .addEventListener(
+        'click',
+        this.favFlick.bind(this, flick)
+      )
+
 
     return item
   }
@@ -43,6 +59,7 @@ class App {
     const flick = {
       id: ++this.max,
       name: f.flickName.value,
+      fav: false,
     }
 
     this.flicks.unshift(flick)
