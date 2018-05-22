@@ -53,10 +53,14 @@ main {
   display: none;
 }
 
-.actions .button {
+.actions .button,
+.actions.button-group {
   margin-bottom: 0;
 }
 
+.flick {
+  margin-bottom: 1px;
+}
 .flick.fav {
   background-color: #62e6ff;
 }
