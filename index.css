@@ -64,3 +64,10 @@ main {
 .flick.fav {
   background-color: #62e6ff;
 }
+
+.flick:first-child button.move-up,
+.flick:last-child button.move-down {
+  background-color: #ddd;
+  color: #eee;
+  cursor: not-allowed;
+}
